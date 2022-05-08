@@ -1,0 +1,414 @@
+@import url(https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;600;800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap);
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("../fonts/Roboto-Regular.ttf");
+  font-weight: bolder;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cairo, sans-serif;
+}
+
+body,
+html {
+  color: #99a0b0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #f5f5fa;
+  font-size: 16px;
+  line-height: 120%;
+  font-family: Open Sans, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/**************************
+***********************
+Login Page 
+***********************
+**************************/
+.logo img {
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  margin-top: 50px;
+}
+.login-form {
+  background-color: #ffffff;
+  width: 400px;
+  height: 280px;
+  margin-top: 70px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.forget a {
+  font-size: 14px;
+}
+.forget a:hover {
+  text-decoration: none;
+}
+.btn-primary {
+  background-color: #133764 !important;
+  border-color: #133764 !important;
+}
+/**************************
+***********************
+ End of Login Page
+***********************
+**************************/
+
+/**************************
+***********************
+Dashboard Page 
+***********************
+**************************/
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 230px;
+  padding: 10px 14px;
+  background: #fff;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+.sidebar .text {
+  color: #707070;
+  transition: all 0.2s ease;
+  font-size: 17px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 1;
+}
+.sidebar header {
+  position: relative;
+}
+
+.sidebar header .image {
+  min-width: 60px;
+  border-radius: 6px;
+}
+.sidebar header .image-text {
+  display: flex;
+  align-items: center;
+}
+.sidebar header .logo-text {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: fit-content;
+}
+.sidebar header .image-text .name {
+  margin-top: 2px;
+  font-size: 15px;
+  font-weight: bold;
+}
+/* #classes{
+  display: none !important;
+} */
+.sidebar header .image-text .profession {
+  font-size: 14px;
+  margin-top: -2px;
+  display: block;
+}
+.sidebar header .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar header .image img {
+  width: 50px;
+  height: 38px;
+  border-radius: 6px;
+}
+
+.sidebar .menu {
+  margin-top: 40px;
+}
+.sidebar li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+.sidebar li a {
+  padding: 10px 20px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.sidebar li.drop {
+  padding: 10px 20px;
+  align-items: center;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.sidebar li.drop .icon {
+  color: #2b7ee4;
+}
+.sidebar li.drop.active .icon {
+  color: #fff;
+}
+.sidebar li.drop .dropdown-menu a:hover,
+.sidebar li.drop.active .dropdown-menu a:hover {
+  color: #fff !important;
+  background-color: #2b7ee4 !important;
+}
+.sidebar li.drop.active .dropdown-menu a{
+  background-color: #fff ;
+  color:#333333  !important;
+}
+
+.sidebar li.active a .text,
+.sidebar li.active a,
+.sidebar li.drop.active,
+.sidebar li.drop.active .text {
+  color: #fff !important;
+  background-color: #2b7ee4;
+  border-radius: 6px;
+}
+.sidebar li a span{
+  margin-left: 25px;
+}
+
+.sidebar li a:hover,
+.sidebar li.drop:hover {
+  background-color: #2b7ee4;
+}
+
+.sidebar li.drop button:focus,
+.sidebar li.drop button,
+.sidebar li.drop button:active {
+  outline: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text,
+.sidebar li.drop:hover .icon,
+.sidebar li.drop:hover .text {
+  color: #fff;
+}
+.sidebar .menu-bar {
+  height: calc(100% - 55px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.accordion .card .card-title h5 {
+  color: #707070;
+  margin-top: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+.dashboard {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.content-wrap {
+  grid-area: content;
+  padding: 3em;
+  overflow: auto;
+}
+.content-wrap .content-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content-wrap .content-head h1 {
+  font-size: 1.375em;
+  line-height: 100%;
+  color: #1b253d;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+.content-wrap .info-boxes {
+  padding: 3em 0 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 2em;
+}
+
+.content-wrap .info-boxes .info-box {
+  background: #fff;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 3em;
+  border: 1px solid #ede8f0;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.content-wrap .info-boxes .info-box:hover {
+  transform: translateY(-1.2%);
+}
+.content-wrap .info-boxes .info-box {
+  transition: transform 0.3s;
+}
+.content-wrap .info-boxes .info-box .box-icon img {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.content-wrap .info-boxes .info-box .box-content {
+  padding-left: 1.25em;
+  white-space: nowrap;
+}
+.content-wrap .info-boxes .info-box .box-content .big {
+  display: block;
+  font-size: 2em;
+  line-height: 150%;
+  color: #1b253d;
+}
+.content-wrap .info-boxes .info-box .box-content .small {
+  font-size: 14px;
+  color: #99a0b0;
+  font-family: Open Sans, Helvetica, sans-serif;
+}
+.home {
+  position: absolute;
+  top: 0;
+  top: 0;
+  left: 250px;
+  height: 100vh;
+  width: calc(100% - 250px);
+  background-color: #8097a011;
+  transition: all 0.3s ease;
+}
+.home .text {
+  font-size: 30px;
+  font-weight: 500;
+  color: #707070;
+  padding: 12px 60px;
+}
+.content-wrap .content {
+  margin-top: 30px;
+}
+.content-wrap .content p.selectProj {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  margin-left: 50px;
+  color: #03045E;
+}
+.content-wrap .note {
+  padding: 10px;
+  margin-top: 30px;
+  border: 2px groove #bebdbd38;
+  border-radius: 5px;
+  width: 80%;
+}
+input[type="file"]::file-selector-button {
+  padding: 0.2em 0.4em;
+  border-radius: 0.2em;
+  background-color: #2b7ee4;
+  border: 2px solid #2b7ee4;
+  color: #fff;
+  transition: 1s;
+}
+
+.content table td .btn,
+.btnDel {
+  font-size: 1rem !important;
+  padding: 0.125rem 0.25rem !important;
+  font-weight: 300 !important;
+}
+.btn-primary {
+  background-color: #2b7ee4 !important;
+  border: 2px solid #2b7ee4 !important;
+}
+.table-info {
+  background-color: #2b7ee4bd !important;
+}
+.content .card form {
+  width: 60%;
+}
+.accordion .card {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.pass_show {
+  position: relative;
+}
+.pass_show .ptxt {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  z-index: 1;
+  color: red;
+  margin-top: -10px;
+  cursor: pointer;
+  transition: 0.3s ease all;
+}
+.pass_show .ptxt:hover {
+  color: #333333;
+}
+.head h5{
+  font-size: 18px;
+  color: #03045E;
+}
+#UL1 .projectList{
+  background-color: #b8daff;
+  border-radius: 5px;
+}
+#UL1 .projectList .SelectBtn button{
+  border: none !important;
+  background-color: transparent !important;
+  color: #007bff;
+}
+#UL1 .projectList .SelectBtn button:focus{
+   outline: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+ol#UL2 li{
+  border-bottom: 1px solid #03055e54;
+}
+
+ .SelectBtn .addIcon{
+  font-size: 30px;
+  line-height: 72px;
+}
+.DeltBtn .btnDel{
+  font-size: 25px !important;
+  line-height: 72px;
+  color: red;
+}
+.EditBtn{
+  background-color: #E6EAF0 !important;
+  border-radius: 5px;
+  color: #03045E !important;
+}
+.EditBtn:hover{
+  background-color: #007bff !important;
+  color: #fff !important;
+}
+.custom-select
+{
+  background-color: #b8daff !important;
+  border:  2px solid  #007bff !important;
+}
+.selectG{
+  border:  2px solid  #007bff ;
+  border-radius: 3px;
+  margin-left: 5px;
+}
