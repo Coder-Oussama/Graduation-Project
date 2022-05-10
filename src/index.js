@@ -28,7 +28,6 @@ const login = async (email, password) => {
     password,
   });
   console.log(user);
-
   return user.data;
   // localStorage.getItem.user
 };
@@ -111,6 +110,9 @@ $(document).ready(function () {
   $(".pass_show").append('<span class="ptxt">Show</span>');
 
   const user = JSON.parse(localStorage.user);
+  if (user.role === "admin") { 
+    $(".SelectBtn").addClass("invisible");
+  }
   if (user.role === "student") {
     $(".student").addClass("d-none");
     $("#imgLogo").replaceWith(`<img src="images/Avatar 1.png" alt="Avatar" />`);
@@ -190,11 +192,11 @@ fetch("https://graduate-projects.herokuapp.com/students/master", {
   })
   .then((data) => {
     console.log(data);
-    $(document).ready(function () {
-      let A = 0;
-      function StudentTemplate(student) {
-        A++;
-        return `
+
+    let A = 0;
+    function StudentTemplate(student) {
+      A++;
+      return `
              <tr id="${A}">
                 <th scope="row">${A}</th>
                 <td contenteditable="true">${student.name}</td>
@@ -212,11 +214,10 @@ fetch("https://graduate-projects.herokuapp.com/students/master", {
                 </td>
               </tr>
     `;
-      }
-      $("#TableData2").html(`
+    }
+    $("#TableData2").html(`
   ${data.map(StudentTemplate).join("")}
   `);
-    });
   });
 
 fetch("https://graduate-projects.herokuapp.com/professors", {
@@ -227,11 +228,10 @@ fetch("https://graduate-projects.herokuapp.com/professors", {
   })
   .then((data) => {
     console.log(data);
-    $(document).ready(function () {
-      let B = 0;
-      function ProfTemplate(prof) {
-        B++;
-        return `
+    let B = 0;
+    function ProfTemplate(prof) {
+      B++;
+      return `
              <tr id="${B}">
                 <th scope="row">${B}</th>
                 <td contenteditable="true">${prof.name}</td>
@@ -249,11 +249,10 @@ fetch("https://graduate-projects.herokuapp.com/professors", {
                 </td>
               </tr>
     `;
-      }
-      $("#ProfData").html(`
+    }
+    $("#ProfData").html(`
   ${data.map(ProfTemplate).join("")}
   `);
-    });
   });
 
 fetch("https://graduate-projects.herokuapp.com/projects", {
@@ -426,11 +425,18 @@ function GroupTemplate() {
                <h2 class="col-2  ml-2 font-weight-bold  my-auto ">
                  01
                </h2>
-               <span  class="col-5  offset-md-3  my-auto">
+               <span  class="col-5  offset-md-2  my-auto">
                <select required class="custom-select d-block mb-1"></select>
                <select class="custom-select d-block mb-1"></select>
                <select class="custom-select d-block"></select>
                </span>
+               <div class="col-2 offset-md-1 media">
+                 <button
+                    class="btn btn-primary  text-left text-white align-self-center"
+                    type="button">
+                    Add Group
+                 </button>
+               </div>
              </li>
       `;
 }
@@ -488,13 +494,16 @@ $("#submitProjects").on("click", () => {
     const el = graduationProjects[j];
 
     if (el.nodeName === "LI") {
-    console.log("el ..... ", el);
+      console.log("el ..... ", el);
 
-      selectedElements.push(el.classList[1].split('_')[1])
+      selectedElements.push(el.classList[1].split("_")[1]);
     }
   }
 
-  console.log(selectedElements)
-
-  // axios(`${url1}/admin/submitProjects`, projects);
+  console.log(selectedElements);
+  const id = "626472013fcaa7ac73a1a97a";
+  axios
+    .post(`${url1}/choices/${id}`, { selectedElements })
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
 });
